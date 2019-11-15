@@ -38,8 +38,9 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  saveBook = () => {
-    API.saveBook()
+  saveBook = (id, book) => {
+    console.log(id)
+    API.saveBook(id, book)
       .then(res =>
         console.log(res))
       .catch(err => console.log(err))
@@ -92,7 +93,8 @@ class App extends Component {
                           description={book.volumeInfo.description}
                           image={book.volumeInfo.imageLinks.thumbnail}
                           link={book.volumeInfo.infoLink}
-                          key={book.accessInfo.id}
+                          key={book.id}
+                          book={book}
                           saveBook={this.saveBook}
                         />
                       );

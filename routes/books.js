@@ -1,25 +1,32 @@
 const axios = require("axios");
 const router = require("express").Router();
 require('dotenv').config()
+const db = require("../models");
 
-const key = process.env.BOOKS_API
+const APIkey = process.env.BOOKS_API
 
 router.get("/books", (req, res) => {
-    console.log("this endpoint was hit!")
-
-    let request = "https://www.googleapis.com/books/v1/volumes?q=" + req.query.q.replace(/\s/g, "+") + "&key=" + key;
-    console.log(req.query)
-    console.log(request)
+    let request = "https://www.googleapis.com/books/v1/volumes?q=" + req.query.q.replace(/\s/g, "+") + "&key=" + APIkey;
     axios
         .get(request)
         .then((response) => {
-
-            // console.log(response.data)
             res.json(response.data.items)
         })
         .catch(err => {
             res.status(422).json(err)
         });
 });
+
+router.post("/books/:key", (req, res) => {
+    console.log("post route hit")
+    console.log("params" + req.params.key)
+
+
+    console.log("body: " + JSON.stringify(req.body));
+    db.Book
+        .create(req.body)
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err))
+})
 
 module.exports = router;
