@@ -11,10 +11,9 @@ function App() {
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/" component={Saved} />
+          <Route exact path="/" component={SearchBooks} />
           <Route exact path="/saved" component={Saved} />
-          {/* <Route path="/books/:id" component={Detail} /> */}
-          {/* <Route component={NoMatch} /> */}
+
         </Switch>
       </div>
     </Router>
