@@ -20,3 +20,11 @@
 .App-link {
   color: #09d3ac;
 }
+
+.jumbotron {
+  background-image: url("./images/book.jpg");
+  background-size: cover;
+  background-position: bottom right;
+  color: white;
+  text-shadow: 1px 1px black;
+}

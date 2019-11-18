@@ -51,16 +51,17 @@ class SearchBooks extends Component {
     render() {
         return (
             <div>
+                <Jumbotron>
+                    <h1>React Google Book Search</h1>
+                </Jumbotron>
                 <Container>
                     <Row>
                         <Col size="md-12">
-                            <Jumbotron>
-                                <h1>React Google Book Search</h1>
-                            </Jumbotron>
+
                             <form>
                                 <Container>
                                     <Row>
-                                        <Col size="xs-9 sm-10">
+                                        <Col size="xs-8 sm-10">
                                             <Input
                                                 name="bookSearch"
                                                 value={this.state.bookSearch}
