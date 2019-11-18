@@ -17,7 +17,8 @@ export function BookListItem({
     description,
     image,
     id,
-    saveBook
+    saveBook,
+    deleteBook
 }) {
     return (
         <li className="list-group-item" id={id}>
@@ -27,14 +28,17 @@ export function BookListItem({
                         <Image src={image} />
                     </Col>
                     <Col size="xs-8 sm-9">
-                        <h1>{id}</h1>
                         <h3>{title}</h3>
                         <p>Authors: {authors}</p>
                         <p>Description: {description}</p>
                         <a rel="noreferrer noopener" target="_blank" href={link}>
                             Go to Book!
                         </a>
-                        <button onClick={() => { saveBook(id, { id, title, authors, description, link, image }) }} id={id} type="button" className="btn btn-success">Save Book</button>
+                        {!(window.location.pathname === "/saved") ?
+                            <button onClick={() => { saveBook(id, { id, title, authors, description, link, image }) }} id={id} type="button" className="btn btn-success">Save Book</button>
+                            :
+                            <button onClick={() => { deleteBook(id, { id, title, authors, description, link, image }) }} id={id} type="button" className="btn btn-danger">Delete Book</button>
+                        }
                     </Col>
                 </Row>
             </Container>

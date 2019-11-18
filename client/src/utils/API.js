@@ -12,5 +12,13 @@ export default {
         console.log("saveBook ran")
         console.log(data);
         return axios.post("/api/books/" + id, data)
+    },
+
+    getSavedBooks: function () {
+        return axios.get("/api/books/saved")
+    },
+
+    deleteBook: function (id) {
+        return axios.delete("/api/books/" + id)
     }
 };

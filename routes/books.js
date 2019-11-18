@@ -25,6 +25,28 @@ router.post("/books/:id", (req, res) => {
         .create(req.body)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err))
+});
+
+router.get("/books/saved", (req, res) => {
+    console.log("Get saved books ran")
+    db.Book
+        .find()
+        .then(savedBooks => {
+            console.log(savedBooks)
+            res.json(savedBooks)
+        })
+        .catch(err => {
+            res.status(422).json(err)
+        })
+});
+
+router.remove("/books/:id", (req, res) => {
+    console.log("delete route hit")
+    db.Book
+        .findById({ _id: req.params.id })
+        .then(dbModel => dbModel.remove())
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
 })
 
 module.exports = router;
