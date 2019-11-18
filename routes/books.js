@@ -6,7 +6,7 @@ const db = require("../models");
 const APIkey = process.env.BOOKS_API
 
 router.get("/books", (req, res) => {
-    let request = "https://www.googleapis.com/books/v1/volumes?q=" + req.query.q.replace(/\s/g, "+") + "&key=" + APIkey;
+    let request = "https://www.googleapis.com/books/v1/volumes?q=" + req.query.q.replace(/\s/g, "+");
     axios
         .get(request)
         .then((response) => {
