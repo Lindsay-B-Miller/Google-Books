@@ -8,8 +8,9 @@ export default {
         return axios.get("/api/books", { params: { q: query } });
     },
 
-    saveBook: function (key, data) {
+    saveBook: function (id, data) {
+        console.log("saveBook ran")
         console.log(data);
-        return axios.post("/api/books/" + key, data)
+        return axios.post("/api/books/" + id, data)
     }
 };

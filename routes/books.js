@@ -17,11 +17,9 @@ router.get("/books", (req, res) => {
         });
 });
 
-router.post("/books/:key", (req, res) => {
+router.post("/books/:id", (req, res) => {
     console.log("post route hit")
-    console.log("params" + req.params.key)
-
-
+    console.log("params: " + req.params.id)
     console.log("body: " + JSON.stringify(req.body));
     db.Book
         .create(req.body)

@@ -93,7 +93,7 @@ class App extends Component {
                           description={book.volumeInfo.description}
                           image={book.volumeInfo.imageLinks.thumbnail}
                           link={book.volumeInfo.infoLink}
-                          key={book.id}
+                          id={book.id}
                           book={book}
                           saveBook={this.saveBook}
                         />

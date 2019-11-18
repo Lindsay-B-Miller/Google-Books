@@ -16,25 +16,25 @@ export function BookListItem({
     authors,
     description,
     image,
-    key,
+    id,
     saveBook
 }) {
     return (
-        <li className="list-group-item" key={key}>
+        <li className="list-group-item" id={id}>
             <Container>
                 <Row>
                     <Col size="xs-4 sm-2">
                         <Image src={image} />
                     </Col>
                     <Col size="xs-8 sm-9">
-                        <h1>{key}</h1>
+                        <h1>{id}</h1>
                         <h3>{title}</h3>
                         <p>Authors: {authors}</p>
                         <p>Description: {description}</p>
                         <a rel="noreferrer noopener" target="_blank" href={link}>
                             Go to Book!
                         </a>
-                        <button onClick={() => { saveBook(key, { key, title, authors, description, link, image }) }} key={key} type="button" className="btn btn-success">Save Book</button>
+                        <button onClick={() => { saveBook(id, { id, title, authors, description, link, image }) }} id={id} type="button" className="btn btn-success">Save Book</button>
                     </Col>
                 </Row>
             </Container>
