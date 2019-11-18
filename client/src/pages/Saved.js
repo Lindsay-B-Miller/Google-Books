@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row } from "../components/Grid";
+import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { BookList, BookListItem } from "../components/BookList";
@@ -35,35 +35,43 @@ class Saved extends Component {
 
     render() {
         return (
-            <div>
-                <Jumbotron>
-                    <h1>Saved Books</h1>
-                </Jumbotron>
+            <Container>
+                <div>
+                    <Jumbotron>
+                        <div>
+                            <h1>Saved Books</h1>
+                            <h4>React Google Book Search</h4>
+                        </div>
+                    </Jumbotron>
 
-                <Row>
-                    <Col size="xs-12">
-                        {!this.state.books.length ? (
-                            <h1 className="text-center">No Saved Books</h1>
-                        ) : (
-                                <BookList>
-                                    {this.state.books.map(book => {
-                                        return (
-                                            <BookListItem
-                                                title={book.title}
-                                                authors={book.authors}
-                                                description={book.description}
-                                                image={book.image}
-                                                link={book.link}
-                                                id={book._id}
-                                                deleteBook={this.deleteBook}
-                                            />
-                                        );
-                                    })}
-                                </BookList>
-                            )}
-                    </Col>
-                </Row>
-            </div>
+                    <Row>
+                        <Col size="xs-12">
+                            {!this.state.books.length ? (
+                                <Container>
+                                    <h2>No Books to Display.</h2>
+                                    <h4>Visit the home page to search for and save your favorite titles</h4>
+                                </Container>
+                            ) : (
+                                    <BookList>
+                                        {this.state.books.map(book => {
+                                            return (
+                                                <BookListItem
+                                                    title={book.title}
+                                                    authors={book.authors}
+                                                    description={book.description}
+                                                    image={book.image}
+                                                    link={book.link}
+                                                    id={book._id}
+                                                    deleteBook={this.deleteBook}
+                                                />
+                                            );
+                                        })}
+                                    </BookList>
+                                )}
+                        </Col>
+                    </Row>
+                </div>
+            </Container>
         );
     }
 }

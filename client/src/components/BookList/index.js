@@ -29,11 +29,9 @@ export function BookListItem({
                     </Col>
                     <Col size="xs-8 sm-9">
                         <h3>{title}</h3>
-                        <p>Authors: {authors}</p>
+                        <p>Author(s): {authors}</p>
                         <p>Description: {description}</p>
-                        <a rel="noreferrer noopener" target="_blank" href={link}>
-                            Go to Book!
-                        </a>
+                        <a href={link} target="_blank" rel="noopener noreferrer"><button type="button" class="btn btn-primary mr-2">Go to Book</button></a>
                         {!(window.location.pathname === "/saved") ?
                             <button onClick={() => { saveBook(id, { id, title, authors, description, link, image }) }} id={id} type="button" className="btn btn-success">Save Book</button>
                             :
@@ -42,7 +40,7 @@ export function BookListItem({
                     </Col>
                 </Row>
             </Container>
-        </li>
+        </li >
     );
 }
 

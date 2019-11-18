@@ -51,12 +51,11 @@ class SearchBooks extends Component {
     render() {
         return (
             <div>
-                {/* <Jumbotron /> */}
                 <Container>
                     <Row>
                         <Col size="md-12">
                             <Jumbotron>
-                                <h1>Search for Books</h1>
+                                <h1>React Google Book Search</h1>
                             </Jumbotron>
                             <form>
                                 <Container>
@@ -73,7 +72,7 @@ class SearchBooks extends Component {
                                             <Button
                                                 onClick={this.handleFormSubmit}
                                                 type="success"
-                                                className="input-lg" >
+                                                className="input-lg mb-5" >
                                                 Search
                                             </Button>
                                         </Col>
@@ -85,7 +84,12 @@ class SearchBooks extends Component {
                     <Row>
                         <Col size="xs-12">
                             {!this.state.books.length ? (
-                                <h1 className="text-center">No Books to Display</h1>
+                                <div>
+                                    <Container>
+                                        <h2>No Books to Display.</h2>
+                                        <h4>Search for a book to get started!</h4>
+                                    </Container>
+                                </div>
                             ) : (
                                     <BookList>
                                         {this.state.books.map(book => {

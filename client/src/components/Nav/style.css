@@ -1,4 +1,7 @@
-nav.navbar {
+nav.navbar-dark {
     margin-bottom: 0;
   }
-  
+
+.nav-link:hover{
+  color: rgb(3, 180, 3)
+}
