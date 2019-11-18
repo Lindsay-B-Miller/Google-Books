@@ -40,7 +40,7 @@ router.get("/books/saved", (req, res) => {
         })
 });
 
-router.remove("/books/:id", (req, res) => {
+router.delete("/books/:id", (req, res) => {
     console.log("delete route hit")
     db.Book
         .findById({ _id: req.params.id })
