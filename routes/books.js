@@ -49,8 +49,8 @@ router.delete("/books/:id", (req, res) => {
         .catch(err => res.status(422).json(err));
 });
 
-router.get("*", () => {
-
+router.get("*", (res) => {
+    res.send("404 not found").status(404)
 });
 
 module.exports = router;
