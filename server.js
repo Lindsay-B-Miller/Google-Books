@@ -12,9 +12,6 @@ app.use(express.json());
 // Static assets (heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
-    app.use(function (req, res) {
-        res.sendFile('/index.html');
-    })
 }
 
 // Define API routes here
