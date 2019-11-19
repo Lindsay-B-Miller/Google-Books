@@ -12,12 +12,13 @@ app.use(express.json());
 // Static assets (heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
+
+    // if no api routes are hit, send the react app
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+    })
 }
 
-// if no api routes are hit, send the react app
-app.use(function (req, res) {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"))
-})
 
 // Define API routes here
 app.use("/api", routes);
