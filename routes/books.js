@@ -3,7 +3,7 @@ const router = require("express").Router();
 require('dotenv').config()
 const db = require("../models");
 
-const APIkey = process.env.BOOKS_API
+const APIkey = process.env.BOOKS_API;
 
 router.get("/books", (req, res) => {
     let request = "https://www.googleapis.com/books/v1/volumes?q=" + req.query.q.replace(/\s/g, "+");
@@ -49,8 +49,5 @@ router.delete("/books/:id", (req, res) => {
         .catch(err => res.status(422).json(err));
 });
 
-router.get("*", (res) => {
-    res.send("404 not found").status(404)
-});
 
 module.exports = router;

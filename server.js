@@ -2,6 +2,7 @@ const express = require("express");
 // const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes/books");
+const path = require('path');
 const PORT = process.env.PORT || 4003
 const app = express();
 
@@ -9,9 +10,14 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Static assets (heroku)
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "development") {
     app.use(express.static("client/build"));
 }
+
+// if no api routes are hit, send the react app
+app.use(function (req, res) {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"))
+})
 
 // Define API routes here
 app.use("/api", routes);
