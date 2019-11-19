@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:4003/",
+  "homepage": "https://google-books21232.herokuapp.com/",
   "dependencies": {
     "axios": "^0.19.0",
     "dotenv": "^8.2.0",
